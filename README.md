@@ -43,4 +43,4 @@ This tool is for education and planning only. It is not investment, tax, or fina
 
 ## Author
 
-Student submission for Capstone Project Nexus.
+## Terence Keniya
