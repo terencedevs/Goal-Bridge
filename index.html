@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A private, educational goal-based investment planner for Indian first-time earners.">
+  <title>GoalBridge | Investment Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="finance-workspace.css">
+  <link rel="stylesheet" href="education.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header container">
+    <a class="brand" href="#top" aria-label="GoalBridge home"><span class="brand-mark">G</span><span>GoalBridge<small>PLANNING STUDIO</small></span></a>
+    <span class="privacy-pill"><span aria-hidden="true">●</span> Private by design</span>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">GOAL-BASED INVESTMENT PLANNER</p>
+      <h1 id="page-title">Make a future goal<br><em>feel manageable.</em></h1>
+      <p class="hero-copy">Explore the monthly saving needed for a life goal in today's rupees. Clear assumptions, no account, no product recommendations.</p>
+      <div class="hero-points"><span>◈ INR planning</span><span>◈ Monthly compounding</span><span>◈ Saved only on this device</span></div>
+    </section>
+
+    <section class="planner-grid" aria-label="Goal investment planner">
+      <form id="plannerForm" class="glass-panel input-panel" novalidate>
+        <div class="panel-heading"><div><p class="section-kicker">01 / YOUR GOAL</p><h2>Plan the target</h2></div><button class="text-button" type="button" id="resetButton">Reset</button></div>
+        <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+        <div class="field full"><label for="goalName">What are you saving for?</label><input id="goalName" name="goalName" type="text" maxlength="60" placeholder="e.g., Higher Education Fund"><small>A personal label, stored only in your browser.</small></div>
+        <div class="field"><label for="goalAmount">Cost in today's money <span aria-hidden="true">(₹)</span></label><div class="input-wrap"><span>₹</span><input id="goalAmount" name="goalAmount" inputmode="decimal" type="number" min="1" max="1000000000" step="1000" aria-describedby="amountHelp"></div><small id="amountHelp">Example: 12,00,000</small></div>
+        <div class="field"><label for="years">Years until needed</label><div class="input-wrap suffix"><input id="years" name="years" inputmode="numeric" type="number" min="0.25" max="60" step="0.25"><span>years</span></div><small>Between 3 months and 60 years.</small></div>
+        <div class="field"><label for="inflation">Expected inflation</label><div class="input-wrap suffix"><input id="inflation" name="inflation" inputmode="decimal" type="number" min="0" max="25" step="0.1"><span>% p.a.</span></div><small>How the goal's cost may rise.</small></div>
+        <div class="field"><label for="returnRate">Expected investment return</label><div class="input-wrap suffix"><input id="returnRate" name="returnRate" inputmode="decimal" type="number" min="0" max="30" step="0.1"><span>% p.a.</span></div><small>An assumption, not a promise.</small></div>
+        <div class="field full"><label for="currentSavings">Already set aside for this goal</label><div class="input-wrap"><span>₹</span><input id="currentSavings" name="currentSavings" inputmode="decimal" type="number" min="0" max="1000000000" step="1000"></div><small>Only savings specifically allocated to this goal.</small></div>
+        <details class="finance-details full"><summary><span>Finance review inputs</span><small>Optional cash-flow check</small></summary><div class="finance-fields"><div class="field"><label for="monthlyIncome">Monthly take-home income</label><div class="input-wrap"><span>₹</span><input id="monthlyIncome" name="monthlyIncome" inputmode="decimal" type="number" min="0" max="100000000" step="1000" placeholder="e.g., 60000"></div><small>Income after deductions.</small></div><div class="field"><label for="monthlyCommitments">Monthly commitments</label><div class="input-wrap"><span>₹</span><input id="monthlyCommitments" name="monthlyCommitments" inputmode="decimal" type="number" min="0" max="100000000" step="1000" placeholder="e.g., 25000"></div><small>Rent, bills, EMIs, essentials.</small></div></div></details>
+        <button class="calculate-button" type="submit"><span>Review plan</span><span aria-hidden="true">→</span></button>
+      </form>
+
+      <section class="results-column" aria-label="Plan results">
+        <article class="result-hero glass-panel" id="resultCard" tabindex="-1">
+          <p class="section-kicker">02 / MONTHLY PLAN</p>
+          <p class="result-label">For <strong id="goalLabel">your goal</strong>, consider setting aside</p>
+          <div class="monthly-amount" aria-live="polite"><span>₹</span><strong id="monthlyContribution">—</strong><small>/ month</small></div>
+          <p class="result-subtext" id="resultSummary">Enter your goal details and your plan will update automatically.</p>
+          <div class="funding-visual"><div class="visual-head"><span>Starting progress</span><strong id="startFundingPercent">16.8%</strong></div><div class="progress-track" role="progressbar" aria-label="Starting funding progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="16.8"><span id="fundingBar"></span></div><div class="visual-legend"><span><i class="legend-savings"></i>Current savings at goal</span><span><i class="legend-plan"></i>Monthly plan</span></div></div>
+          <button class="secondary-button" id="downloadButton" type="button">Download plan CSV <span aria-hidden="true">↓</span></button>
+        </article>
+        <article class="metrics-panel glass-panel">
+          <div class="panel-heading"><div><p class="section-kicker">PLAN BREAKDOWN</p><h2>Where the number comes from</h2></div><span class="calculation-status" id="calculationStatus">Updated now</span></div>
+          <dl class="metrics-grid">
+            <div><dt>Future goal cost</dt><dd id="futureGoal">₹ 19,12,618</dd><small>inflation-adjusted</small></div>
+            <div><dt>Future value of savings</dt><dd id="futureSavings">₹ 3,21,538</dd><small>at assumed return</small></div>
+            <div><dt>Funding gap</dt><dd id="fundingGap">₹ 15,91,079</dd><small>to be funded</small></div>
+            <div><dt>Total you contribute</dt><dd id="totalContribution">₹ 10,65,067</dd><small>across the period</small></div>
+            <div class="highlight-metric"><dt>Projected growth</dt><dd id="projectedGrowth">₹ 6,97,550</dd><small>estimated, not guaranteed</small></div>
+            <div><dt>Monthly rate used</dt><dd id="monthlyRate">0.80%</dd><small>effective monthly rate</small></div>
+          </dl>
+        </article>
+        <article class="cashflow-panel glass-panel" id="cashflowPanel" hidden aria-live="polite"><div class="panel-heading"><div><p class="section-kicker">CASH-FLOW FIT</p><h2>Can this plan fit your month?</h2></div><span id="cashflowStatus" class="fit-status">On track</span></div><div class="cashflow-values"><div><span>Available after commitments</span><strong id="monthlySurplus">₹0</strong></div><div><span>Plan uses of available cash</span><strong id="surplusUse">0%</strong></div><div><span>Buffer after this plan</span><strong id="monthlyBuffer">₹0</strong></div></div><p id="cashflowNarrative"></p></article>
+        <article class="saved-panel glass-panel"><div class="panel-heading"><div><p class="section-kicker">YOUR WORKSPACE</p><h2>Keep comparable plans</h2></div><button class="text-button" id="savePlanButton" type="button">Save this plan</button></div><p class="saved-empty" id="savedEmpty">No saved plans yet. Plans stay on this device only.</p><div id="savedPlans" class="saved-plans" aria-live="polite"></div></article>
+      </section>
+    </section>
+
+    <section class="scenario-section" aria-labelledby="scenarioTitle">
+      <div><p class="section-kicker">03 / STRESS-TEST THE ASSUMPTION</p><h2 id="scenarioTitle">A plan is stronger when you see the range.</h2><p>Compare the same goal at three return assumptions. This is a scenario tool, not a forecast.</p></div>
+      <div class="scenario-cards" id="scenarioCards" aria-live="polite"></div>
+    </section>
+
+    <section class="education-grid" aria-label="SIP and calculation guide">
+      <article class="education-card"><p class="section-kicker">SIP IN PLAIN LANGUAGE</p><h2>What is a SIP?</h2><p>A Systematic Investment Plan (SIP) means contributing a fixed amount at regular intervals, usually each month. This planner estimates the monthly amount needed to work toward a goal; it does not select an investment or guarantee a return.</p><ul><li>Regular contributions can make a large goal easier to plan for.</li><li>Your contribution is based on your goal, time horizon, existing savings, inflation, and assumed return.</li><li>Review the plan when your income, goal cost, or timeline changes.</li></ul></article>
+      <article class="education-card calculation-guide"><p class="section-kicker">CALCULATION WALKTHROUGH</p><h2>How your plan is calculated</h2><ol><li><strong>Future goal cost:</strong> today’s cost is grown using your inflation assumption.</li><li><strong>Projected savings:</strong> current savings are grown using the assumed effective monthly return.</li><li><strong>Funding gap:</strong> projected savings are deducted from the future goal cost.</li><li><strong>Monthly SIP estimate:</strong> the gap is spread over the remaining months with monthly compounding.</li></ol><p class="calculation-note">All calculations retain precision internally and round only the displayed INR values.</p></article>
+      <article class="education-card saved-explainer"><p class="section-kicker">SAVED SCENARIOS</p><h2>Compare plans over time</h2><p>Use <strong>Save this plan</strong> to keep up to 12 named goal scenarios on this device. Each entry stores its assumptions and monthly contribution, so you can load a plan and compare it again later.</p><p>Saved scenarios stay in this browser only. They are not transmitted, shared, or used to create a financial profile.</p></article>
+    </section>
+
+    <section class="method-grid">
+      <article><p class="section-kicker">HOW IT WORKS</p><h2>Built for transparent decisions.</h2><p>Your goal cost is grown by inflation. Existing savings and future contributions are compounded monthly using an effective monthly rate: <code>(1 + annual return)<sup>1/12</sup> − 1</code>.</p><p>With a 0% return assumption, the remaining gap is simply split over the remaining months—no divide-by-zero errors.</p></article>
+      <aside class="disclaimer"><span aria-hidden="true">!</span><div><strong>Educational planning only</strong><p>GoalBridge does not provide investment, tax, or legal advice; recommend products; or guarantee returns. Inflation, returns, taxes, charges, market movement, and contribution timing can change outcomes. Consider your circumstances and consult a qualified adviser before acting.</p></div></aside>
+    </section>
+  </main>
+  <footer class="container"><span>GoalBridge Planning Studio</span><span class="creator-credit">Creator - Terence Keniya</span><span>No sign-up. No data sent anywhere.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
