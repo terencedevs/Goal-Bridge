@@ -41,6 +41,11 @@ The inflation and return inputs are illustrative assumptions. Returns may vary, 
 
 This tool is for education and planning only. It is not investment, tax, or financial advice and does not guarantee outcomes.
 
+Live Demo: https://terencedevs.github.io/Goal-Bridge/ 
+Deployment: Github Pages 
+Repository: This repository 
+Status: Live 
+
 ## Author
 
-## Terence Keniya
+## Terence Hiten Keniya
