@@ -46,3 +46,10 @@ For the supplied case, use a spreadsheet with the formulas in the README. Keep u
 | **Retest Result** | Checked the updated website and confirmed that the SIP explanation is displayed correctly in the relevant section. |
 | **GitHub Commit** | `[3ef740e]`                                                                                               |
 
+| Field             | Details                                                                                                                       |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Issue**         | During testing, the Save option was not functioning correctly and did not save the information as intended.                   |
+| **Impact**        | Users could not reliably save their information/results, affecting the usability of the application.                          |
+| **Fix**           | Corrected the Save functionality so that the relevant information can be saved properly.                                      |
+| **Retest Result** | Tested the Save option again and confirmed that the information was saved correctly and the functionality worked as intended. |
+| **GitHub Commit** | `[Insert commit ID]`                                                                                                          |
