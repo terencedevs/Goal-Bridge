@@ -44,5 +44,5 @@ For the supplied case, use a spreadsheet with the formulas in the README. Keep u
 | **Impact**        | Users unfamiliar with SIP might not understand the purpose of the calculator or the information being displayed.   |
 | **Fix**           | Added a short explanation of SIP and relevant information to make the website easier for users to understand.      |
 | **Retest Result** | Checked the updated website and confirmed that the SIP explanation is displayed correctly in the relevant section. |
-| **GitHub Commit** | `[Insert commit ID]`                                                                                               |
+| **GitHub Commit** | `[3ef740e]`                                                                                               |
 
