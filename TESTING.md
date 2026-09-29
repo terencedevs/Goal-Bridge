@@ -36,5 +36,5 @@ For the supplied case, use a spreadsheet with the formulas in the README. Keep u
 | **Impact**        | Users could not clearly see the actual result of their inputs, reducing the usefulness of the calculator.                        |
 | **Fix**           | Updated the calculation and output logic so that the calculated values are displayed correctly based on the user's inputs.       |
 | **Retest Result** | Tested with different input values and confirmed that the displayed calculated values changed correctly according to the inputs. |
-| **GitHub Commit** | `[Insert commit ID]`                                                                                                             |
+| **GitHub Commit** | `[f6617ac]`                                                                                                             |
 
